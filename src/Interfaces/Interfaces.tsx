@@ -9,5 +9,11 @@ export interface I_InputsData {
   birthDay: string;
   age: string;
   job: string;
-  image: MediaSource | any;
+  personImage: MediaSource | any;
+  university: string;
+  province: string;
+  city: string;
+  license: string;
+  score: string;
+  licenseImage: MediaSource | any;
 }

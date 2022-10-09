@@ -1,6 +1,6 @@
 .inputContainer {
-  width: 20rem;
-  height: 1.8rem;
+  width: 35rem;
+  height: 2rem;
   position: relative;
   margin: {
     top: 3vh;
@@ -34,8 +34,20 @@
     font : {
       size: 0.8rem;
     }
+    padding: {
+      left: 0.2rem;
+      right: 0.2rem;
+    }
   }
   .inputHelper.done {
     background-color: green;
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    }
+    border-radius: 1rem;
+  }
+  p {
+    pointer-events: none;
   }
 }

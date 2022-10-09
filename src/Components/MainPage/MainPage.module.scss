@@ -1,10 +1,10 @@
 .mainPage {
-  background: #ea3bb7;
-  background: -webkit-linear-gradient(bottom left, #ea3bb7, #16649e);
-  background: -moz-linear-gradient(bottom left, #ea3bb7, #16649e);
-  background: linear-gradient(to top right, #ea3bb7, #16649e);
-  animation: bgPosChanger 1s ease linear;
-  -webkit-animation: bgPosChanger 1s ease linear;
+  background: linear-gradient(20deg, #a040a5, #9e4f99, rgb(138, 43, 226));
+  background-size: 142% 142%;
+  -webkit-animation: AnimationName 4s ease infinite;
+  -moz-animation: AnimationName 4s ease infinite;
+  -o-animation: AnimationName 4s ease infinite;
+  animation: AnimationName 4s ease infinite;
   box-sizing: border-box;
   padding: 1rem;
   img {
@@ -13,11 +13,47 @@
   }
 }
 
-@keyframes bgPosChanger {
-  from {
-    background-position: 0;
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 25%;
   }
-  to {
-    background-position: -300;
+  50% {
+    background-position: 100% 76%;
+  }
+  100% {
+    background-position: 0% 25%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 25%;
+  }
+  50% {
+    background-position: 100% 76%;
+  }
+  100% {
+    background-position: 0% 25%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 25%;
+  }
+  50% {
+    background-position: 100% 76%;
+  }
+  100% {
+    background-position: 0% 25%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 25%;
+  }
+  50% {
+    background-position: 100% 76%;
+  }
+  100% {
+    background-position: 0% 25%;
   }
 }

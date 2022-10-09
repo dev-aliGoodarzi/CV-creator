@@ -1,5 +1,8 @@
 import React from "react";
-import { inputsArray } from "../../constants/constants";
+import {
+  inputArrayForUniversityInformation,
+  inputsArrayForTopInformations,
+} from "../../constants/constants";
 import Input from "../Input/Input";
 
 import styles from "./MainPage.module.css";
@@ -21,13 +24,11 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
     >
       <img
         src={
-          defaultImage === personImage
-            ? defaultImage
-            : URL.createObjectURL(personImage)
+          personImage === "" ? defaultImage : URL.createObjectURL(personImage)
         }
         alt=""
       />
-      {inputsArray.map((item) => (
+      {inputsArrayForTopInformations.map((item) => (
         <Input
           key={item.nameForShow}
           content={item.nameForShow}
@@ -41,7 +42,20 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
           }}
         />
       ))}
-      <button type="submit">Submit</button>
+      <br />
+      {inputArrayForUniversityInformation.map((item) => (
+        <Input
+          key={item.name}
+          onChangeInputHandler={(e: any) => {
+            textInputChangeHandler(
+              item.type === "file" ? e.target.files[0] : e.target.value,
+              item.name
+            );
+          }}
+          content={item.nameForShow}
+          type={item.type}
+        />
+      ))}
     </div>
   );
 };

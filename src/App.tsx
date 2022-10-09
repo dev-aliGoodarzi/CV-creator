@@ -6,12 +6,18 @@ import { I_InputsData } from "./Interfaces/Interfaces";
 
 import img1 from "./images/personIMG.png";
 function App() {
-  const inputData = {
+  const inputData: I_InputsData = {
     name: "",
     birthDay: "",
     age: "",
     job: "",
-    image: "",
+    personImage: "",
+    university: "",
+    province: "",
+    city: "",
+    license: "",
+    score: "",
+    licenseImage: "",
   };
   const [inputsData, setInputsData] = useState<I_InputsData>(inputData);
   const textInputChangeHandler = (
@@ -33,8 +39,26 @@ function App() {
         case "job":
           copy.job = valueToSet;
           return copy;
-        case "image":
-          copy.image = valueToSet;
+        case "personImage":
+          copy.personImage = valueToSet;
+          return copy;
+        case "university":
+          copy.university = valueToSet;
+          return copy;
+        case "province":
+          copy.province = valueToSet;
+          return copy;
+        case "city":
+          copy.city = valueToSet;
+          return copy;
+        case "license":
+          copy.license = valueToSet;
+          return copy;
+        case "score":
+          copy.score = valueToSet;
+          return copy;
+        case "licenseImage":
+          copy.licenseImage = valueToSet;
           return copy;
       }
       return copy;
@@ -53,7 +77,7 @@ function App() {
             <MainPage
               textInputChangeHandler={textInputChangeHandler}
               defaultImage={img1}
-              personImage={inputData.image}
+              personImage={inputsData.personImage}
             />
           }
         />

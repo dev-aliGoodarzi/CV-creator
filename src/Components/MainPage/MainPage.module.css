@@ -1,30 +1,39 @@
 .mainPage {
-  background: #ea3bb7;
-  background: linear-gradient(to top right, #ea3bb7, #16649e);
-  animation: bgPosChanger 1s ease linear;
-  -webkit-animation: bgPosChanger 1s ease linear;
-  box-sizing: border-box;
+  background: linear-gradient(20deg, #a040a5, #9e4f99, blueviolet);
+  background-size: 142% 142%;
+  -webkit-animation: AnimationName 4s ease infinite;
+  animation: AnimationName 4s ease infinite;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 1rem;
 }
+
 .mainPage img {
   width: 10rem;
   height: 10rem;
 }
 
-@-webkit-keyframes bgPosChanger {
-  from {
-    background-position: 0;
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 25%;
   }
-  to {
-    background-position: -300;
+  50% {
+    background-position: 100% 76%;
+  }
+  100% {
+    background-position: 0% 25%;
   }
 }
 
-@keyframes bgPosChanger {
-  from {
-    background-position: 0;
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 25%;
   }
-  to {
-    background-position: -300;
+  50% {
+    background-position: 100% 76%;
   }
-}/*# sourceMappingURL=MainPage.module.css.map */
+  100% {
+    background-position: 0% 25%;
+  }
+}
+/*# sourceMappingURL=MainPage.module.css.map */
