@@ -1,0 +1,23 @@
+.mainPage {
+  background: #ea3bb7;
+  background: -webkit-linear-gradient(bottom left, #ea3bb7, #16649e);
+  background: -moz-linear-gradient(bottom left, #ea3bb7, #16649e);
+  background: linear-gradient(to top right, #ea3bb7, #16649e);
+  animation: bgPosChanger 1s ease linear;
+  -webkit-animation: bgPosChanger 1s ease linear;
+  box-sizing: border-box;
+  padding: 1rem;
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+@keyframes bgPosChanger {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -300;
+  }
+}
