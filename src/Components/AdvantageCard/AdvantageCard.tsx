@@ -2,31 +2,48 @@ import React from "react";
 import { I_advantage } from "../../Interfaces/Interfaces";
 import styles from "./AdvantageCard.module.css";
 type AdvantageCardPropsType = {
-  data: I_advantage;
+  advantageName: string;
+  advantageValue: number;
 };
 
 const AdvantageCard: React.FunctionComponent<AdvantageCardPropsType> = ({
-  data: { name, nameForShow, currentValueOfAdvantage },
+  advantageName,
+  advantageValue,
 }) => {
+  function between(x: number, min: number, max: number): boolean {
+    return x >= min && x <= max;
+  }
   return (
     <div
-      className={`flex flex-row items-center justify-between ${styles.advantageCardItem}`}
+      className={`flex flex-row-reverse items-center justify-between ${styles.advantageCardItem}`}
     >
-      <div className={`w-2/6 ${styles.left}`}>{nameForShow}</div>
       <div
-        className={`w-3/6 flex flex-col items-start justify-between ${styles.right}`}
+        className={`flex flex-row-reverse items-center justify-between ${styles.left}`}
+      >
+        <span> : نام تخصص </span>
+        <span>{advantageName}</span>
+      </div>
+
+      <div
+        className={` flex flex-col items-start justify-between ${styles.right}`}
       >
         <div
-          className={`w-full h-1/2 flex flex-row items-center justify-center  ${styles.top}`}
+          className={`flex flex-row-reverse items-center justify-between  ${styles.top}`}
         >
-          درصد پیشرفت فعلی
+          <span> : مقدار تخصص </span>
+          <span>
+            {between(advantageValue, 0, 25) && "مقدماتی"}
+            {between(advantageValue, 26, 50) && "متوسط"}
+            {between(advantageValue, 51, 70) && "پیشرفته"}
+            {between(advantageValue, 71, 100) && "حرفه ای"}
+          </span>
         </div>
         <div
-          className={`w-full h-1/2 flex flex-row items-center justify-center ${styles.bottom}`}
+          className={`flex flex-row items-center justify-start ${styles.bottom}`}
         >
           <div
-            className={` ${styles.inner}`}
-            style={{ width: currentValueOfAdvantage }}
+            className={`${styles.inner}`}
+            style={{ width: `${advantageValue}%` }}
           ></div>
         </div>
       </div>

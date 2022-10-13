@@ -63,6 +63,7 @@ function App() {
           return copy;
         case "advantages":
           copy.advantages.push(valueToSet);
+          console.log(valueToSet);
           return copy;
       }
       return copy;

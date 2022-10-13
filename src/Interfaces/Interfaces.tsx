@@ -27,4 +27,5 @@ export interface I_advantage {
   name: string;
   nameForShow: string;
   currentValueOfAdvantage: number;
+  key?: string;
 }

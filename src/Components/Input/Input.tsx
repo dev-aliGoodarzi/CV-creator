@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import "./Input.css";
 type InputPropsTypes = {
@@ -9,7 +9,6 @@ type InputPropsTypes = {
     length: number;
     regEx?: RegExp | string;
   };
-  ref?: any;
 };
 
 const Input: React.FunctionComponent<InputPropsTypes> = ({
@@ -17,14 +16,12 @@ const Input: React.FunctionComponent<InputPropsTypes> = ({
   content,
   type,
   validation: { length, regEx },
-  ref,
 }) => {
   return (
     <div className="inputContainer">
       <input
         type={type}
         onChange={(e) => onChangeInputHandler(e)}
-        ref={ref}
         onFocus={(e) => {
           e.currentTarget.parentElement?.children[1].classList.add("active");
           if (e.currentTarget.value.length <= length)

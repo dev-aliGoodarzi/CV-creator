@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   inputArrayForUniversityInformation,
   inputsArrayForTopInformations,
@@ -13,7 +13,7 @@ type MainPagePropsType = {
   textInputChangeHandler: Function;
   defaultImage: any;
   personImage: any;
-  advantages: I_advantage[];
+  advantages: any[];
 };
 
 const MainPage: React.FunctionComponent<MainPagePropsType> = ({
@@ -22,8 +22,7 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
   personImage,
   advantages,
 }) => {
-  const firstAdvantageInput = React.createRef();
-  const secondAdvantageInput = React.createRef();
+  const [advantageData, setAdvantageData] = useState({});
   return (
     <div
       className={`w-screen h-screen flex flex-col items-center justify-start ${styles.mainPage}`}
@@ -67,28 +66,44 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
       <div className={styles.advantages}>
         <Input
           content="نوع تخصص"
-          onChangeInputHandler={() => {}}
+          onChangeInputHandler={(e: any) => {
+            setAdvantageData((prevState) => {
+              return { ...prevState, advantageName: e.target.value };
+            });
+          }}
           type={"text"}
           validation={{ length: 2 }}
-          ref={firstAdvantageInput}
         />{" "}
         <Input
           content="درصد پیشرفت"
-          onChangeInputHandler={() => {}}
+          onChangeInputHandler={(e: any) => {
+            setAdvantageData((prevState) => {
+              return { ...prevState, advantageValue: e.target.value };
+            });
+          }}
           type={"text"}
           validation={{ length: 2 }}
-          ref={secondAdvantageInput}
         />
         <button
           onClick={() => {
-            console.log(firstAdvantageInput?.current);
+            setAdvantageData((prevState) => {
+              return {
+                ...prevState,
+                key: `${Math.random() * 10000} - ${Math.random() * 80000}`,
+              };
+            });
+            textInputChangeHandler(advantageData, "advantages");
           }}
         >
           Add
         </button>
       </div>
       {advantages.map((item) => (
-        <AdvantageCard key={item.name} data={item} />
+        <AdvantageCard
+          key={item.key || Math.random() * 100000}
+          advantageName={item.advantageName}
+          advantageValue={item.advantageValue}
+        />
       ))}
     </div>
   );
