@@ -1,4 +1,6 @@
 .mainPage {
+  width: auto;
+  height: max-content;
   background: linear-gradient(20deg, #a040a5, #9e4f99, rgb(138, 43, 226));
   background-size: 142% 142%;
   -webkit-animation: AnimationName 4s ease infinite;
@@ -10,6 +12,8 @@
   img {
     width: 10rem;
     height: 10rem;
+  }
+  .advantages {
   }
 }
 

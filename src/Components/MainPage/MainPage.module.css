@@ -1,18 +1,19 @@
 .mainPage {
-  background: linear-gradient(20deg, #a040a5, #9e4f99, blueviolet);
+  width: auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background: linear-gradient(20deg, #a040a5, #9e4f99, rgb(138, 43, 226));
   background-size: 142% 142%;
   -webkit-animation: AnimationName 4s ease infinite;
   animation: AnimationName 4s ease infinite;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 1rem;
 }
-
 .mainPage img {
   width: 10rem;
   height: 10rem;
 }
-
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 0% 25%;
@@ -24,7 +25,6 @@
     background-position: 0% 25%;
   }
 }
-
 @keyframes AnimationName {
   0% {
     background-position: 0% 25%;
@@ -35,5 +35,4 @@
   100% {
     background-position: 0% 25%;
   }
-}
-/*# sourceMappingURL=MainPage.module.css.map */
+}/*# sourceMappingURL=MainPage.module.css.map */

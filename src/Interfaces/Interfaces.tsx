@@ -2,6 +2,10 @@ export interface I_Input {
   nameForShow: string;
   name: string;
   type: string;
+  validation: {
+    length: number;
+    regEx?: RegExp | string;
+  };
 }
 
 export interface I_InputsData {
@@ -16,4 +20,11 @@ export interface I_InputsData {
   license: string;
   score: string;
   licenseImage: MediaSource | any;
+  advantages: I_advantage[];
+}
+
+export interface I_advantage {
+  name: string;
+  nameForShow: string;
+  currentValueOfAdvantage: number;
 }

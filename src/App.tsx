@@ -18,10 +18,11 @@ function App() {
     license: "",
     score: "",
     licenseImage: "",
+    advantages: [],
   };
   const [inputsData, setInputsData] = useState<I_InputsData>(inputData);
   const textInputChangeHandler = (
-    valueToSet: string,
+    valueToSet: string | object | any,
     selectedItemName: any
   ): void => {
     setInputsData((prevState: I_InputsData): I_InputsData => {
@@ -60,6 +61,9 @@ function App() {
         case "licenseImage":
           copy.licenseImage = valueToSet;
           return copy;
+        case "advantages":
+          copy.advantages.push(valueToSet);
+          return copy;
       }
       return copy;
     });
@@ -78,6 +82,7 @@ function App() {
               textInputChangeHandler={textInputChangeHandler}
               defaultImage={img1}
               personImage={inputsData.personImage}
+              advantages={inputsData.advantages}
             />
           }
         />

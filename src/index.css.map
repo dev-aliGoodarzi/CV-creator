@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,SAAS,CAAT,IAAS;AACT,SAAS,CAAT,UAAS;AACT,SAAS,CAAT,SAAS",
-    "sources": [
-        "index.scss"
-    ],
-    "names": [],
-    "file": "index.css"
-}
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA,cAAA;AACA,oBAAA;AACA,mBAAA","file":"index.css"}
