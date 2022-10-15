@@ -1,14 +1,15 @@
 import React from "react";
-import { I_advantage } from "../../Interfaces/Interfaces";
 import styles from "./AdvantageCard.module.css";
 type AdvantageCardPropsType = {
   advantageName: string;
   advantageValue: number;
+  onClickHandler: Function;
 };
 
 const AdvantageCard: React.FunctionComponent<AdvantageCardPropsType> = ({
   advantageName,
   advantageValue,
+  onClickHandler,
 }) => {
   function between(x: number, min: number, max: number): boolean {
     return x >= min && x <= max;
@@ -16,11 +17,14 @@ const AdvantageCard: React.FunctionComponent<AdvantageCardPropsType> = ({
   return (
     <div
       className={`flex flex-row-reverse items-center justify-between ${styles.advantageCardItem}`}
+      onClick={() => {
+        onClickHandler(advantageName);
+      }}
     >
       <div
         className={`flex flex-row-reverse items-center justify-between ${styles.left}`}
       >
-        <span> : نام تخصص </span>
+        <span> {"( برای حذف کلیک کنید )"} : نام تخصص </span>
         <span>{advantageName}</span>
       </div>
 

@@ -1,0 +1,9 @@
+.hrEl {
+  width: 100%;
+  height: max-content;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  .inner {
+    width: 100%;
+  }
+}

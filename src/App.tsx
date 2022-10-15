@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MainPage from "./Components/MainPage/MainPage";
 import { Routes, Route } from "react-router-dom";
 import ResultPage from "./Components/ResultPage/ResultPage";
@@ -63,16 +63,18 @@ function App() {
           return copy;
         case "advantages":
           copy.advantages.push(valueToSet);
-          console.log(valueToSet);
+          return copy;
+        case "advantageRemove":
+          const selectedItems = copy.advantages.filter(
+            (item) => item.advantageName !== valueToSet
+          );
+          copy.advantages = selectedItems;
           return copy;
       }
       return copy;
     });
   };
 
-  useEffect(() => {
-    console.log(inputsData);
-  }, [inputsData]);
   return (
     <>
       <Routes>

@@ -24,8 +24,7 @@ export interface I_InputsData {
 }
 
 export interface I_advantage {
-  name: string;
-  nameForShow: string;
-  currentValueOfAdvantage: number;
+  advantageName: string;
+  advantageValue: number;
   key?: string;
 }
