@@ -1,26 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainPage from "./Components/MainPage/MainPage";
 import { Routes, Route } from "react-router-dom";
 import ResultPage from "./Components/ResultPage/ResultPage";
 import { I_InputsData } from "./Interfaces/Interfaces";
 
 import img1 from "./images/personIMG.png";
+import Home from "./Components/Home/Home";
+
+import { Fade } from "react-awesome-reveal";
+const INITIALSTATE: I_InputsData = {
+  name: "",
+  birthDay: "",
+  age: "",
+  job: "",
+  personImage: "",
+  university: "",
+  province: "",
+  city: "",
+  license: "",
+  score: "",
+  licenseImage: "",
+  advantages: [],
+};
+const inputData: I_InputsData = {
+  name: "",
+  birthDay: "",
+  age: "",
+  job: "",
+  personImage: "",
+  university: "",
+  province: "",
+  city: "",
+  license: "",
+  score: "",
+  licenseImage: "",
+  advantages: [],
+};
 function App() {
-  const inputData: I_InputsData = {
-    name: "",
-    birthDay: "",
-    age: "",
-    job: "",
-    personImage: "",
-    university: "",
-    province: "",
-    city: "",
-    license: "",
-    score: "",
-    licenseImage: "",
-    advantages: [],
-  };
-  const [inputsData, setInputsData] = useState<I_InputsData>(inputData);
+  //methods
   const textInputChangeHandler = (
     valueToSet: string | object | any,
     selectedItemName: any
@@ -74,19 +91,61 @@ function App() {
       return copy;
     });
   };
+  const getItemsFromLocalStorage = (
+    localStorageIndex: string
+  ): I_InputsData[] => {
+    const localStorageIndexChecker = localStorage.getItem(localStorageIndex);
+    const jsonFormater = JSON.parse(localStorageIndexChecker || "[]");
+    if (jsonFormater) return jsonFormater;
+    else return [];
+  };
+  const addItemsToLocalStorage = (
+    localStorageKey: string,
+    localStorageItems: I_InputsData[]
+  ): void => {
+    const makeDataToString = JSON.stringify(localStorageItems);
+    localStorage.setItem(localStorageKey, makeDataToString);
+    return;
+  };
+  const addToLocalStorageAndState = () => {
+    setSavedItems((prevState: any): any => {
+      return [...prevState, inputsData];
+    });
+    setInputsData(INITIALSTATE);
+    console.log(forceUpdateHeader);
+  };
+  //methods
 
+  //states
+  const [inputsData, setInputsData] = useState<I_InputsData>(inputData);
+  const [savedItems, setSavedItems] = useState<I_InputsData[]>(
+    getItemsFromLocalStorage("lastResumes")
+  );
+  const [forceUpdateHeader, setForceUpdateHeader] = useState(true);
+  //states
+
+  useEffect(() => {
+    addItemsToLocalStorage("lastResumes", savedItems);
+    setForceUpdateHeader((prev) => !prev);
+  }, [savedItems]);
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home localStorageItems={savedItems} />} />
         <Route
-          path="/"
+          path="/new-resume-maker"
           element={
-            <MainPage
-              textInputChangeHandler={textInputChangeHandler}
-              defaultImage={img1}
-              personImage={inputsData.personImage}
-              advantages={inputsData.advantages}
-            />
+            <Fade>
+              <MainPage
+                textInputChangeHandler={textInputChangeHandler}
+                defaultImage={img1}
+                personImage={inputsData.personImage}
+                advantages={inputsData.advantages}
+                addItemsToLocalStorage={() => {
+                  addToLocalStorageAndState();
+                }}
+              />
+            </Fade>
           }
         />
         <Route path="/result" element={<ResultPage />} />

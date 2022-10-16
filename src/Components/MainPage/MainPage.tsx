@@ -16,6 +16,7 @@ type MainPagePropsType = {
   defaultImage: any;
   personImage: any;
   advantages: I_advantage[];
+  addItemsToLocalStorage: Function;
 };
 
 const MainPage: React.FunctionComponent<MainPagePropsType> = ({
@@ -23,6 +24,7 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
   defaultImage,
   personImage,
   advantages,
+  addItemsToLocalStorage,
 }) => {
   const [advantageData, setAdvantageData] = useState<I_advantage>({
     advantageName: "",
@@ -139,6 +141,14 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
           }}
         />
       ))}
+      <Hr text="مرحله ی پایانی" />
+      <button
+        onClick={() => {
+          addItemsToLocalStorage();
+        }}
+      >
+        اتمام ساخت
+      </button>
     </div>
   );
 };

@@ -1,0 +1,8 @@
+.homeContainer {
+  background-color: rgba(50, 50, 200, 0.3);
+}
+.homeContainer .createNewBtn {
+  width: 40rem;
+  height: 6rem;
+  background-color: rgba(137, 43, 226, 0.751);
+}/*# sourceMappingURL=Home.module.css.map */
