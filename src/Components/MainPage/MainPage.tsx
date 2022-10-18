@@ -5,7 +5,7 @@ import {
   inputArrayForUniversityInformation,
   inputsArrayForTopInformations,
 } from "../../constants/constants";
-import { I_advantage } from "../../Interfaces/Interfaces";
+import { I_advantage, I_InputsData } from "../../Interfaces/Interfaces";
 import AdvantageCard from "../AdvantageCard/AdvantageCard";
 import Hr from "../Hr/Hr";
 import Input from "../Input/Input";
@@ -15,6 +15,7 @@ import styles from "./MainPage.module.css";
 type MainPagePropsType = {
   textInputChangeHandler: Function;
   defaultImage: any;
+  inputsData: any;
   personImage: any;
   advantages: I_advantage[];
   addItemsToLocalStorage: Function;
@@ -23,6 +24,7 @@ type MainPagePropsType = {
 const MainPage: React.FunctionComponent<MainPagePropsType> = ({
   textInputChangeHandler,
   defaultImage,
+  inputsData,
   personImage,
   advantages,
   addItemsToLocalStorage,
@@ -42,12 +44,12 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
         alt=""
       />
       <Hr text="اطلاعات اولیه" />
-
       {inputsArrayForTopInformations.map((item) => (
         <Input
           key={item.nameForShow}
           content={item.nameForShow}
           type={item.type}
+          inputData={item.type === "text" ? inputsData[item.name] : undefined}
           onChangeInputHandler={(e: any) => {
             textInputChangeHandler(
               item.type === "file" ? e.target.files[0] : e.target.value,
@@ -67,6 +69,7 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
               item.name
             );
           }}
+          inputData={item.type === "text" ? inputsData[item.name] : undefined}
           content={item.nameForShow}
           type={item.type}
           validation={item.validation}

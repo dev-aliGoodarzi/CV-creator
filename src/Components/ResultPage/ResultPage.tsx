@@ -1,6 +1,7 @@
 import React from "react";
 // Models
 import { I_InputsData, I_resultData } from "../../Interfaces/Interfaces";
+import Hr from "../Hr/Hr";
 import ResultCard from "../ResultCard/ResultCard";
 import ResultPageAdvantageCard from "../ResultPageAdvantageCard/ResultPageAdvantageCard";
 // Models
@@ -91,12 +92,28 @@ const ResultPage: React.FunctionComponent<ResultPageProps> = ({
         src={URL.createObjectURL(personImage || new Blob())}
         alt={"personImg"}
       />
+      <Hr text="اطلاعات شخصی" />
       {resultData.map((item) => {
         return <ResultCard key={item.nameForShow} data={item} />;
       })}
+      <Hr text="تخصص ها " />
       {advantages.map((item) => {
         return <ResultPageAdvantageCard key={item.advantageName} data={item} />;
       })}
+      <button
+        className={`w-3/12 h-14
+          flex items-center justify-center
+          rounded-full
+        bg-blue-600
+          mt-5
+        text-white text-3xl
+          font-serif font-bold ${styles.printBtn}`}
+        onClick={() => {
+          window.print();
+        }}
+      >
+        چاپ اطلاعات
+      </button>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const ResultCard: React.FunctionComponent<ResultPageProps> = ({
       {dataType === "t" && (
         <>
           <span>{nameForShow} : </span>
-          <span>{data}</span>
+          <span className="mr-2">{data}</span>
         </>
       )}
       {dataType === "i" && (

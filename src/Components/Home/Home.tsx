@@ -11,12 +11,17 @@ import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import Hr from "../Hr/Hr";
 import ResumeCard from "./ResumeCard/ResumeCard";
+import { I_InputsData } from "../../Interfaces/Interfaces";
 // Components
 
 type HomeProps = {
   localStorageItems: any[];
+  resumeItemSetter: Function;
 };
-const Home: React.FunctionComponent<HomeProps> = ({ localStorageItems }) => {
+const Home: React.FunctionComponent<HomeProps> = ({
+  localStorageItems,
+  resumeItemSetter,
+}) => {
   return (
     <Fade>
       <div
@@ -38,6 +43,7 @@ const Home: React.FunctionComponent<HomeProps> = ({ localStorageItems }) => {
               name={item.name}
               birthDay={item.birthDay}
               job={item.job}
+              resumeItemSetter={resumeItemSetter}
             />
           );
         })}

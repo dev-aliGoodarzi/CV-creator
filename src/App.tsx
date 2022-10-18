@@ -8,6 +8,7 @@ import img1 from "./images/personIMG.png";
 import Home from "./Components/Home/Home";
 
 import { Fade } from "react-awesome-reveal";
+import { ResumeCardProps } from "./Components/Home/ResumeCard/ResumeCard";
 const INITIALSTATE: I_InputsData = {
   name: "",
   birthDay: "",
@@ -113,6 +114,7 @@ function App() {
     });
     console.log(forceUpdateHeader);
   };
+
   //methods
 
   //states
@@ -127,10 +129,31 @@ function App() {
     addItemsToLocalStorage("lastResumes", savedItems);
     setForceUpdateHeader((prev) => !prev);
   }, [savedItems]);
+  const resumeItemSetter = ({ name, job, birthDay }: ResumeCardProps): void => {
+    const copyOfAllStates = [...savedItems];
+    const selectedItemIndex = copyOfAllStates.findIndex((item) => {
+      return (
+        item.name === name && item.job === job && item.birthDay === birthDay
+      );
+    });
+    setInputsData(copyOfAllStates[selectedItemIndex]);
+    setInputsData((prevState: I_InputsData): any => {
+      return { ...prevState, personImage: "", licenseImage: "" };
+    });
+    return;
+  };
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home localStorageItems={savedItems} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              localStorageItems={savedItems}
+              resumeItemSetter={resumeItemSetter}
+            />
+          }
+        />
         <Route
           path="/new-resume-maker"
           element={
@@ -138,6 +161,7 @@ function App() {
               <MainPage
                 textInputChangeHandler={textInputChangeHandler}
                 defaultImage={img1}
+                inputsData={inputsData}
                 personImage={inputsData.personImage}
                 advantages={inputsData.advantages}
                 addItemsToLocalStorage={() => {
@@ -149,7 +173,11 @@ function App() {
         />
         <Route
           path="/result"
-          element={<ResultPage data={inputsData} defaultImage={img1} />}
+          element={
+            <Fade>
+              <ResultPage data={inputsData} defaultImage={img1} />
+            </Fade>
+          }
         />
       </Routes>
     </>

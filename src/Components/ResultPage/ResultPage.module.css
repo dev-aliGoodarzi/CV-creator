@@ -1,4 +1,11 @@
 .resultPageContainer {
+  background-color: #7e5980;
   direction: rtl;
+}
+
+@media print {
+  .resultPageContainer .printBtn {
+    display: none;
+  }
 }
 /*# sourceMappingURL=ResultPage.module.css.map */

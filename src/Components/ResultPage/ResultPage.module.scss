@@ -1,3 +1,14 @@
 .resultPageContainer {
+  background-color: rgb(126, 89, 128);
   direction: rtl;
+  .printBtn {
+  }
+}
+
+@media print {
+  .resultPageContainer {
+    .printBtn {
+      display: none;
+    }
+  }
 }
