@@ -9,6 +9,7 @@ type ResumeCardProps = {
   job: string;
   birthDay: string;
 };
+
 const ResumeCard: React.FunctionComponent<ResumeCardProps> = ({
   name,
   job,
