@@ -9,20 +9,21 @@ import Home from "./Components/Home/Home";
 
 import { Fade } from "react-awesome-reveal";
 import { ResumeCardProps } from "./Components/Home/ResumeCard/ResumeCard";
-const INITIALSTATE: I_InputsData = {
-  name: "",
-  birthDay: "",
-  age: "",
-  job: "",
-  personImage: "",
-  university: "",
-  province: "",
-  city: "",
-  license: "",
-  score: "",
-  licenseImage: "",
-  advantages: [],
-};
+// const INITIALSTATE: I_InputsData = {
+//   name: "",
+//   birthDay: "",
+//   age: "",
+//   job: "",
+//   personImage: "",
+//   university: "",
+//   province: "",
+//   city: "",
+//   license: "",
+//   score: "",
+//   licenseImage: "",
+//   advantages: [],
+// };
+
 const inputData: I_InputsData = {
   name: "",
   birthDay: "",

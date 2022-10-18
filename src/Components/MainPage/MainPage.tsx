@@ -5,7 +5,7 @@ import {
   inputArrayForUniversityInformation,
   inputsArrayForTopInformations,
 } from "../../constants/constants";
-import { I_advantage, I_InputsData } from "../../Interfaces/Interfaces";
+import { I_advantage } from "../../Interfaces/Interfaces";
 import AdvantageCard from "../AdvantageCard/AdvantageCard";
 import Hr from "../Hr/Hr";
 import Input from "../Input/Input";
