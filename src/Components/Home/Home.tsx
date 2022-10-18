@@ -8,7 +8,7 @@ import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 // Modules
 // Components
-import { Fade, Bounce } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import Hr from "../Hr/Hr";
 import ResumeCard from "./ResumeCard/ResumeCard";
 // Components

@@ -4,6 +4,7 @@
   position: relative;
   margin-top: 3vh;
 }
+
 .inputContainer input {
   width: 100%;
   height: 100%;
@@ -12,8 +13,10 @@
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 .inputContainer .inputHelper {
   right: 1.3rem;
   top: 20%;
@@ -24,6 +27,7 @@
   -o-transition: 0.1s ease all;
   font-size: 1rem;
 }
+
 .inputContainer .inputHelper.active {
   top: -0.5rem;
   background-color: blueviolet;
@@ -32,12 +36,15 @@
   padding-left: 0.2rem;
   padding-right: 0.2rem;
 }
+
 .inputContainer .inputHelper.done {
   background-color: green;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 1rem;
 }
+
 .inputContainer p {
   pointer-events: none;
-}/*# sourceMappingURL=Input.css.map */
+}
+/*# sourceMappingURL=Input.css.map */

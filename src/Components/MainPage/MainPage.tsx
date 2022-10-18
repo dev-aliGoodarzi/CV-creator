@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
   inputArrayForUniversityInformation,
@@ -142,13 +143,14 @@ const MainPage: React.FunctionComponent<MainPagePropsType> = ({
         />
       ))}
       <Hr text="مرحله ی پایانی" />
-      <button
+      <Link
+        to="/result"
         onClick={() => {
           addItemsToLocalStorage();
         }}
       >
         اتمام ساخت
-      </button>
+      </Link>
     </div>
   );
 };

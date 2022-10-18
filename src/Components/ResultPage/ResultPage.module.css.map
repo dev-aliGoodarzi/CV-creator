@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,SAAS,EAAE,GAAG;CACf",
+    "sources": [
+        "ResultPage.module.scss"
+    ],
+    "names": [],
+    "file": "ResultPage.module.css"
+}

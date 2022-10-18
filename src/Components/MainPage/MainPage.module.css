@@ -3,14 +3,16 @@
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  background: linear-gradient(20deg, #a040a5, #9e4f99, rgb(138, 43, 226));
+  background: linear-gradient(20deg, #a040a5, #9e4f99, blueviolet);
   background-size: 142% 142%;
   -webkit-animation: AnimationName 4s ease infinite;
   animation: AnimationName 4s ease infinite;
   background-attachment: fixed;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 1rem;
 }
+
 .mainPage img {
   width: 10rem;
   height: 10rem;
@@ -20,6 +22,7 @@
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+
 .mainPage .advantages .addBtn {
   border: 2px solid black;
   transition: 0.3s ease all;
@@ -28,6 +31,7 @@
   -ms-transition: 0.3s ease all;
   -o-transition: 0.3s ease all;
 }
+
 .mainPage .advantages .addBtn:hover {
   background-color: #000;
   color: #fff;
@@ -44,6 +48,7 @@
     background-position: 0% 25%;
   }
 }
+
 @keyframes AnimationName {
   0% {
     background-position: 0% 25%;
@@ -54,4 +59,5 @@
   100% {
     background-position: 0% 25%;
   }
-}/*# sourceMappingURL=MainPage.module.css.map */
+}
+/*# sourceMappingURL=MainPage.module.css.map */

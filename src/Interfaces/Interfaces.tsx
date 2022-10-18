@@ -28,3 +28,9 @@ export interface I_advantage {
   advantageValue: number;
   key?: string;
 }
+
+export interface I_resultData {
+  nameForShow: string;
+  data: string | number | MediaSource | any;
+  dataType: "i" | "t";
+}

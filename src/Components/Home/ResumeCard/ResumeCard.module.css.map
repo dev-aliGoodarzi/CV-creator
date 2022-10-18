@@ -1,1 +1,9 @@
-{"version":3,"sources":["ResumeCard.module.scss","ResumeCard.module.css"],"names":[],"mappings":"AAAA;EACE,YAAA;EACA,YAAA;EACA,yCAAA;ACCF","file":"ResumeCard.module.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,uBAAuB;CAC1C",
+    "sources": [
+        "ResumeCard.module.scss"
+    ],
+    "names": [],
+    "file": "ResumeCard.module.css"
+}

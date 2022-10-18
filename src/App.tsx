@@ -111,7 +111,6 @@ function App() {
     setSavedItems((prevState: any): any => {
       return [...prevState, inputsData];
     });
-    setInputsData(INITIALSTATE);
     console.log(forceUpdateHeader);
   };
   //methods
@@ -148,7 +147,10 @@ function App() {
             </Fade>
           }
         />
-        <Route path="/result" element={<ResultPage />} />
+        <Route
+          path="/result"
+          element={<ResultPage data={inputsData} defaultImage={img1} />}
+        />
       </Routes>
     </>
   );
